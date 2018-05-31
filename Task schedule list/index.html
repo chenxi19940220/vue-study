@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div class="wrap" id="tasklist">
+    <div class="box">
+        <div class="taskList">
+            <h2 class="taskList_title">任务计划列表</h2>
+            <div class="main">
+                <div class="list_box">
+                    <h2>任务列表：</h2>
+                    <span style="display: none;" class="tip" v-show="!list.length">还没有添加任何任务</span>
+                    <ul class="taskList_list">
+                        <li class="tasks"
+                             v-for="item in list"
+                             :class="{completed:item.isChecked, editing: item === edtorTodos}"
+                        >
+                            <div class="view">
+                                <input 
+                                    type="checkbox" 
+                                    class="toggle" 
+                                    v-model="item.isChecked"
+                                />
+                                <label @dblclick="edtorTodo(item)">{{ item.title }}</label>
+                                <button class="destroy" @click="deleteTodo(item)">删除</button>
+                            </div>
+                            <input 
+                                type="text" 
+                                class="edit"
+                                v-focus="edtorTodos === item"
+                                v-model="item.title"
+                                @blur="edtorTodoed(item)"
+                                @keyup.enter="edtorTodoed(item)"
+                                @keyup.esc="cancelTodo(item)"
+                            />
+                        </li>                                         
+                    </ul>
+                    <ul class="task_count" v-show="list.length">
+                        <li>{{ noCheckeLength }}个任务未完成</li>
+                        <li class="action">
+                            <a href="#" class="active">所有任务</a> 
+                            <a href="#">未完成的任务</a> 
+                            <a href="#">完成的任务</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="addTask">
+                    <h2>添加任务：</h2>
+                    <input 
+                        type="text" 
+                        class="task_input"  
+                        placeholder="例如：吃饭睡觉打豆豆：   提示：+回车即可添加任务" 
+                        v-model="todo"
+                        v-on:keyup.enter="addTodo"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

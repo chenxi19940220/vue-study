@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+ul,li {
+    list-style: none;
+}
+input {
+    outline: 0;
+}
+a {
+    text-decoration: none;
+}
+body {
+    background-color: #fff;
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.wrap {
+    width: 1000px;
+    margin: 80px auto;
+}
+.box {
+
+}
+.taskList {
+    border: 1px solid #c1c1c1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.taskList .taskList_title {
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    padding: 20px 0;
+    background: #337ab7;
+    color: #fff;
+    letter-spacing: 2px;
+}
+.tip {
+    height: 49px;
+    line-height: 49px;
+    padding: 0 20px;
+}
+.list_box h2,.addTask h2 {
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    padding: 10px 0;
+    letter-spacing: 2px;
+    text-align: left;
+    text-indent: 20px;
+    background: #dedede;
+}
+.taskList_list li {
+    position: relative;
+    font-size: 16px;
+    border-bottom: 1px solid #ededed;
+}
+.taskList_list li .toggle {
+    text-align: center;
+    width: 40px;
+    height: auto;
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    margin: auto 0;
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.toggle:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="40" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+}
+.toggle:checked:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="40" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+.taskList_list li label {
+    white-space: pre-line;
+    word-break: break-all;
+    padding: 15px 60px 15px 15px;
+    margin-left: 45px;
+    display: block;
+    line-height: 1.2;
+    transition: color 0.4s;
+}
+.taskList_list li.completed label {
+    color: #d9d9d9;
+    text-decoration: line-through;
+}
+.taskList_list li .edit {
+    display: none;
+}
+.taskList_list li.editing .edit {
+    display: block;
+    width: 506px;
+    padding: 13px 17px 12px 17px;
+    margin: 0 0 0 43px;
+}
+.taskList_list li.editing .view {
+    display: none;
+}
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    outline: 0;
+}
+.taskList_list li .destroy {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 20px;
+    color: #d9534f;
+    margin-bottom: 4px;
+    transition: color 0.2s ease-out;
+    cursor: pointer;
+}
+.taskList_list li:hover .destroy {
+    display: block;
+}
+.no-task-tip {
+    padding: 10px 0 10px 10px;
+    display: block;
+    border-bottom: 1px solid #ededed;
+    color: #777;
+}
+.task_count {
+    display: flex;
+    padding: 10px;
+}
+.task_count li {
+    padding-left: 10px;
+    flex: 1;
+    color: #dd4b39;
+}
+.task_count li:nth-child(1) {
+    padding: 5px 0 0 4px;
+    letter-spacing: 2px;
+}
+.action {
+    text-align: center;
+    display: flex;
+}
+.action a {
+    margin: 0px 10px;
+    flex: 1;
+    padding: 5px 0;
+    color: #777;
+}
+.active {
+    border: 1px solid #337ab7d6;
+}
+.action a:nth-child(3) {
+    margin-right: 0;
+}
+.task_input {
+    width: 98%;
+    height: 49px;
+    outline: 0;
+    border: none;
+    overflow: hidden;
+    padding-left:20px; 
+}
+
+
