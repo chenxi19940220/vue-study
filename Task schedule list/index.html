@@ -17,7 +17,7 @@
                     <span style="display: none;" class="tip" v-show="!list.length">还没有添加任何任务</span>
                     <ul class="taskList_list">
                         <li class="tasks"
-                             v-for="item in list"
+                             v-for="item in filteredList"
                              :class="{completed:item.isChecked, editing: item === edtorTodos}"
                         >
                             <div class="view">
@@ -43,9 +43,9 @@
                     <ul class="task_count" v-show="list.length">
                         <li>{{ noCheckeLength }}个任务未完成</li>
                         <li class="action">
-                            <a href="#" class="active">所有任务</a> 
-                            <a href="#">未完成的任务</a> 
-                            <a href="#">完成的任务</a>
+                            <a href="#all" :class="{active:visibility === 'all'}">所有任务</a> 
+                            <a href="#unfinished" :class="{active:visibility === 'unfinished'}">未完成的任务</a> 
+                            <a href="#finished" :class="{active:visibility === 'finished'}">完成的任务</a>
                         </li>
                     </ul>
                 </div>
