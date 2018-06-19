@@ -1,0 +1,26 @@
+
+
+判断数组里面是否存在商品
+
+tableData  
+
+let isHave = false     最开始tableDate里面是没有东西的
+
+for(let i=0;i<tableData.length;i++){        循环这个数组，找出里面的每一项
+       if(this.tableData[i].goodsId == goods.goodsId  ) {                 根据这个数组里面每一项商品的goodsId与传进来的这个商品的goodsId是否相等
+       	isHave = true                      如果相等，就说明商品存在
+       }
+}
+
+如果商品存在于tableData，就直接在原有的基础上加
+如果不存在就往tableData里面传入数据    不存在的话，就新创建一个数组放置新传入的数据    然后把新数组push到tableData中
+
+if(isHave) {       
+    let arr = this.tableData.filter((o) => {         对tableData进行筛选，找出那些存在于tableData中的数据
+         o.goodsId == goods.goodsId        新传进来的数据与之前传进来的数据相等     就说明之前数据存在
+    })
+    arr[i].count++         直接在原数组的基础上加
+} else {
+    let newGoods = {goodsId: goods.goodsId, goodsName: goods.goodsName, price: goods.price, count: 1}
+    this.tableData.push(newGoods)
+}
