@@ -24,3 +24,25 @@ if(isHave) {
     let newGoods = {goodsId: goods.goodsId, goodsName: goods.goodsName, price: goods.price, count: 1}
     this.tableData.push(newGoods)
 }
+
+
+计算汇总金额和数量
+
+if(this.tableData){        
+   this.tableData.forEach((element) => {
+         this.totalCount = this.totalCount +  element.count
+         this.totalMoney = this.totalMoney + (element.count * element.price)
+   })
+}
+
+// 删除单个商品
+
+delSingleGoods (goods) {
+      this.tableData = this.tableData.filter(o => o.goodsId !== goods.goodsId)
+      this.getAllMoney()
+}
+
+
+
+
+
